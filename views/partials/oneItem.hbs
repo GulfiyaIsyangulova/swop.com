@@ -1,0 +1,23 @@
+{{!-- <img src="{{theItem.image}}">
+<p>{{theItem.description}}</p>
+<span>{{theItem.price}}</span> --}}
+
+ <div class="card" style="width: 30%; " >
+ <h2>{{this.title}}</h2>
+  <img class="card-img-top" src="{{this.image}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{this.title}} {{price}}</h5>
+    <p class="card-text">{{this.description}}</p>
+    <span>selling by: {{this.owner.username}}</span>
+
+    <form action="/oneItem/delete/{{this._id}}" method="POST">
+    <button class="btn">Delete</button>
+</form>
+ <button class="btn">
+
+    <a href="/oneItem/edit/{{this._id}}">Edit Item</a>
+
+    </button>
+  </div>
+</div>
+

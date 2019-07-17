@@ -1,0 +1,30 @@
+<h2>Categories</h2>
+
+
+<div class="containerr">
+{{#each theItems}}
+<div class="all-items">
+    
+     <a href="/one-item/detail{{this._id}}">{{this.title}}<img src="{{this.image}}" width="250px"></a>
+ 
+    <div class="two-buttons">
+    <button class="btn">
+
+    <a href="">Like</a>
+
+    </button>
+
+
+{{!-- <form action="/new-offer" method="GET"> --}}
+<a href="/new-offer/{{this.owner._id}}">
+<button class="btn">Make an offer </button>
+</a>
+    
+
+{{!-- </form> --}}
+</div>
+
+    </div>
+{{/each}} 
+</div>
+ 

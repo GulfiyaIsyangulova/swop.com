@@ -1,0 +1,42 @@
+<h2>Hi, {{currentUser.username}}!</h2>
+<div class="profile-sides">
+<div class="left-side-profile">
+  <span></span>
+  <ul>
+    <li>Your Likes</li>
+    <li>Your swoppes</li>
+    <li>Settings</li>
+  
+  </ul>
+
+<button class="btn">
+
+    <a href="/createNewListing">Add a listing</a>
+
+    </button>
+</div>
+{{!-- <div class="listings">
+  {{#each theItems}}
+<h3><a href="/movies/detail/{{this._id}}">{{this.title}}</a></h3>
+<form action="/movies/delete/{{this._id}}" method="POST">
+    <button class="btn">Delete</button>
+</form>
+ <button class="btn">
+
+    <a href="/movies/edit/{{this._id}}">Edit Item</a>
+
+    </button>
+{{/each}}
+
+
+
+</div> --}}
+<div class="user-listings">
+  {{#each items}}
+    {{> oneItem this}}
+  {{/each}}
+</div>
+
+
+
+

@@ -1,0 +1,72 @@
+{{!-- go back to the Item Details HBS file and put a link in the page to take the user to a page to create a new offer
+
+get route to create a new offer need to have the id of the Owner item that you want
+
+in the route, get the id of the other user from the params and do Item.find({owner: that other persons ID}) and then you need to do 
+Item.find({owner: req.user._id})
+once you have both of those lists of items,
+render an hbs file and pass in both of those lists
+
+in the hbs file,
+you need to separate sections
+one section has the list of your items,
+one section has the list of the other persons items
+each item has a checkbox next to it
+so you check the boxes to create the offer and click submit
+
+
+post route to receive the information from that form
+when we create the offer we set isFinal =  false
+we set active = true
+we set accepted = false
+and redirect
+
+go back to the profile hbs file, and add a section that shows current offers --}}
+<h2>Let's make a deal!</h2>
+  <form action="/makeoffer/{{theirId}}" method="post">
+
+<div class="offer">
+<div class="proposer">
+  <h1>their items</h1>
+  {{#each theirItems}}
+    <div class="card" style="width: 33.333%;">
+      <h2>{{this.title}}</h2>
+      <img class="card-img-top singleItemImage" src="{{this.image}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{this.title}} {{this.price}}</h5>
+        <p class="card-text">{{this.description}}</p>
+        <span>selling by {{this.owner.username}}</span> 
+      </div>
+      <label>
+        <input type="checkbox" class="my-checkbox" name="theirItems" value="{{this._id}}"/>
+        <span>Red</span>
+      </label>
+    {{!-- <input type="checkbox" name="theirItems" value="{{this._id}}" /> --}}
+    </div>
+  {{/each}}
+</div>
+
+
+
+
+<div class="reciever">
+  <h1>my items</h1>
+ {{#each myItems}}
+    <div class="card" style="width: 33.333%;">
+      <h2>{{this.title}}</h2>
+      <img class="card-img-top singleItemImage" src="{{this.image}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{this.title}} {{this.price}}</h5>
+        <p class="card-text">{{this.description}}</p>
+        <span>selling by {{this.owner.username}}</span> 
+      </div>
+    <input class="my-checkbox" type="checkbox" name="myItems" value="{{this._id}}" />
+    </div>
+  {{/each}}
+</div>
+</div>
+
+
+    <input type="submit" value="Submit">
+
+  </form>
