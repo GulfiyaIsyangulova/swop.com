@@ -22,51 +22,52 @@ we set accepted = false
 and redirect
 
 go back to the profile hbs file, and add a section that shows current offers --}}
-<h2>Let's make a deal!</h2>
-  <form action="/makeoffer/{{theirId}}" method="post">
+<h2 class="each-single-offer-h1">Let's make a deal!</h2>
+ 
+<form action="/makeoffer/{{theirId}}" method="post">
+<h1 class="sub-button"><input class="btn" type="submit" value="Submit"></h1>
+  <div class="offer">
 
-<div class="offer">
-<div class="proposer">
-  <h1>their items</h1>
-  {{#each theirItems}}
-    <div class="card" style="width: 33.333%;">
-      <h2>{{this.title}}</h2>
-      <img class="card-img-top singleItemImage" src="{{this.image}}" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">{{this.title}} {{this.price}}</h5>
-        <p class="card-text">{{this.description}}</p>
-        <span>selling by {{this.owner.username}}</span> 
-      </div>
-      <label>
-        <input type="checkbox" class="my-checkbox" name="theirItems" value="{{this._id}}"/>
-        <span>Red</span>
-      </label>
-    {{!-- <input type="checkbox" name="theirItems" value="{{this._id}}" /> --}}
+ 
+      
+    <div class="reciever">
+      <h1>my items</h1>
+      {{#each myItems}}
+        <div class="all-items">
+          <h2>{{this.title}}</h2>
+          <img class="card-img-top singleItemImage" src="{{this.image}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{this.title}} {{this.price}}</h5>
+            <p class="card-text">{{this.description}}</p>
+            <span>selling by {{this.owner.username}}</span> 
+          </div>
+          <input class="my-checkbox" type="checkbox" name="myItems" value="{{this._id}}" />
+        </div>
+      {{/each}}
     </div>
-  {{/each}}
-</div>
 
 
-
-
-<div class="reciever">
-  <h1>my items</h1>
- {{#each myItems}}
-    <div class="card" style="width: 33.333%;">
-      <h2>{{this.title}}</h2>
-      <img class="card-img-top singleItemImage" src="{{this.image}}" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">{{this.title}} {{this.price}}</h5>
-        <p class="card-text">{{this.description}}</p>
-        <span>selling by {{this.owner.username}}</span> 
-      </div>
-    <input class="my-checkbox" type="checkbox" name="myItems" value="{{this._id}}" />
+    <div class="proposer">
+      <h1>their items</h1>
+      {{#each theirItems}}
+        <div class="all-items">
+          <h2>{{this.title}}</h2>
+          <img class="card-img-top singleItemImage" src="{{this.image}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{this.title}} {{this.price}}</h5>
+            <p class="card-text">{{this.description}}</p>
+            <span>selling by {{this.owner.username}}</span> 
+          </div>
+          <input type="checkbox" class="my-checkbox" name="theirItems" value="{{this._id}}"/>
+          <span>Red</span>
+        
+        </div>
+      {{/each}}
     </div>
-  {{/each}}
-</div>
-</div>
 
 
-    <input type="submit" value="Submit">
+  </div>
 
-  </form>
+    
+
+</form>

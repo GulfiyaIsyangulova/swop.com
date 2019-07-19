@@ -17,7 +17,7 @@ a {
 
 
 .brand-logo{
- margin-left: 40px;
+ margin-left: 50px;
 }
 h2{
   text-align: center;
@@ -29,11 +29,37 @@ h2{
   justify-content: space-evenly;
   
 }
+
+
+
 .all-items{
-  display: block;
-  // width: 200px;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
 }
+
+.all-items img {
+  vertical-align: middle;
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+}
+
+.all-items button {
+  padding: 8px;
+  margin-bottom: 2vh;
+}
+
+.all-items button:hover {
+  padding: 8px;
+  margin-bottom: 2vh;
+  background: white !important;
+}
+
 
 h3{
   text-align: center;
@@ -134,7 +160,7 @@ img {vertical-align: middle;}
 }
 
 .active, .dot:hover {
-  background-color: #717171;
+  background-color: white;
 }
 
 /* Fading animation */
@@ -167,13 +193,28 @@ img {vertical-align: middle;}
 .user-listings{
   display: flex;
   justify-content: space-between;
-  flex-flow: row wrap;
-  align-items: flex-start;
+  flex-flow: wrap;
+
 }
 
 .offer{
   display: flex;
   justify-content: center;
+  width: 100vw;
+}
+
+.singleOffer {
+  display: flex;
+  justify-content: space-between;
+  width: 50vw;
+}
+
+.reciever {
+  width: 20vw;
+}
+
+.proposer {
+  width: 20vw;
 }
 
 .my-checkbox{
@@ -185,17 +226,96 @@ img {vertical-align: middle;}
   padding: 10px !important;
 }
 
+
+.offerCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
 //===================================================================//
 
-// .cards-container {
-//   display: flex;
-//   justify-items: auto;
-//   padding: 10% 20%;
-//   justify-content: space-around;
-// }
+.profile-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-flow: wrap;
+  align-items: center;
+  margin: 0px;
+  width: 20vw;
+  // background-color: gray;
+  height: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+.profile-side-links{
+  display: block; 
 
-// .cards-container img {
-//   object-fit: cover;
-//   object-position: center;
-//   height: 100px;
-// }
+  // position: fixed;
+  width: 30%;
+
+}
+
+.profile-side-links > a{
+  display: block;
+  font-size: 30px;
+}
+.profile-content{
+ 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* justify-content: left; */
+  width: 100%;
+ 
+}
+.greeting{
+  margin-top: 50px;
+  color: #ee6e73;
+  text-align: center;
+}
+
+.greeting h1 {
+  font-size: 4em;
+}
+
+.row .col.s12 button{
+  background-color: palevioletred !important;
+}
+.container-about-page{
+  position: relative;
+  text-align: center;
+  color: white;
+
+  
+  
+}
+.text-parag{
+  position: absolute;
+  top: 35%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  color: white;
+
+}
+.active-offers h1{
+  color: rgb(8, 180, 8);
+  margin-left: 30px;
+}
+.inactive-offers h1{
+  // color: pink;
+  margin-left: 30px;
+}
+
+.offer{
+  margin-top: 8vh;
+  margin-bottom: 4vh;
+  // text-align: justify;
+}
+
+.sub-button{
+  text-align: center;
+}
+.each-single-offer-h1{
+  margin-top: 20vh;
+}

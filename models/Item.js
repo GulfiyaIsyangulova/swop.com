@@ -8,7 +8,8 @@ const itemSchema = new Schema({
     category: [String],
     description: String,
     image: String,
-    owner: { type: Schema.Types.ObjectId, ref: "User"}
+    owner: { type: Schema.Types.ObjectId, ref: "User"},
+    offers: [{type: Schema.Types.ObjectId, ref: 'Offer'}]
 })
 const ItemModel = mongoose.model('Item', itemSchema);
 

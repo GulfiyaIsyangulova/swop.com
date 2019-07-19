@@ -48,15 +48,12 @@ app.use(require('node-sass-middleware')({
 }));
 
 app.use(session({
-  secret: "Shhhh-super-secret-thing",
-  cookie: { maxAge: 60000 },
+  secret: "shhhhh-super-secret",
   resave: true,
-  saveUninitialized: true,
-  store: new MongoStore({
-    mongooseConnection: mongoose.connection,
-    ttl: 24 * 60 * 60 
-  })
+  saveUninitialized: true
 }));
+
+
       
 
 app.set('views', path.join(__dirname, 'views'));

@@ -1,4 +1,67 @@
-<h2>Hi, {{currentUser.username}}!</h2>
+{{!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> --}}
+
+
+    <div class="greeting">
+      <h1>Hi, {{currentUser.username}}!</h1>
+      <h1><button class="btn">
+
+        <a href="/createNewListing">Add a listing</a>
+
+      </button></h1>
+
+    </div>
+
+<div class="row">
+
+  <div class="col-4">
+
+    <div class="profile-content">
+
+    <div class="profile-container">
+
+
+
+      <div>
+
+        <div class="active-offers">
+          <h1><a href="">Notifications</a></h1>
+          <h1>Active Offers</h1>
+          
+          {{#each actives}}
+
+          
+          <h3><li><a href="/each-offer/detail/{{this._id}}">Offer from:{{this.proposer.username}}</a></li></h3>
+          {{/each}}
+        </div>
+
+        <div class="inactive-offers">
+          <h1>Not active offers</h1>
+          {{#each inactives}}
+          <h3><li><a>Offer from:{{this.receiver.username}}</a></li></h3>
+          {{/each}}
+          <h1>Settings</h1>
+        </div>
+
+      </div>
+
+    </div>
+
+    </div>
+
+  </div>
+
+  <div class="col-8">
+
+    <div class="user-listings">
+      {{#each items}}
+      {{> oneItem this}}
+      {{/each}}
+    </div>
+
+  </div>
+
+</div>
+{{!-- <h2>Hi, {{currentUser.username}}!</h2>
 <div class="profile-sides">
 <div class="left-side-profile">
   <span></span>
@@ -15,28 +78,39 @@
 
     </button>
 </div>
-{{!-- <div class="listings">
-  {{#each theItems}}
-<h3><a href="/movies/detail/{{this._id}}">{{this.title}}</a></h3>
-<form action="/movies/delete/{{this._id}}" method="POST">
-    <button class="btn">Delete</button>
-</form>
- <button class="btn">
 
-    <a href="/movies/edit/{{this._id}}">Edit Item</a>
+<div>
+  <h3>Offers</h3>
+  <ul>
+    <li><a href="/offers-section">Your offers</a></li>
+    <li><a>You got an offer</a></li>
+    <li><a>Completed deals</a></li>
+  </ul>
 
-    </button>
-{{/each}}
+</div>
 
 
-
-</div> --}}
+</div> 
 <div class="user-listings">
   {{#each items}}
     {{> oneItem this}}
   {{/each}}
 </div>
 
+<div class="active-offers">
+  <h2>Active Offers</h2>
+{{#each actives}}
+<h2>Offer from:{{this.proposer.username}}</h2>
+{{/each}}
+</div>
+
+<div class="notactive-offers">
+  <h2>Not active offers</h2>
+{{#each inactives}}
+<h2>Offer from:{{this.receiver.username}}</h2>
+{{/each}}
+</div>
 
 
 
+ --}}

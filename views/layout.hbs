@@ -19,25 +19,25 @@
 
 </head>
 <body>
-         <div class = "col s12 m12 l12">
-            <ul id="dropdown1" class="dropdown-content">
-            <li><a href="/profile">Profile</a></li>  
-  <li><a href="/signup">Sign Up Now</a></li>
-  <li><a href="/login">Log In</a></li>
-  <li class="divider"></li>
-  <li><form action="/logout" method="POST"><button class="button4">Log out</button></form></li>
-  
+  <div class = "col s12 m12 l12">
+    {{!-- {{#if user}} --}}
+    <ul id="dropdown1" class="dropdown-content">
+      <li><a href="/profile">Profile</a></li>  
+      <li><a href="/signup">Sign Up Now</a></li>
+      <li><a href="/login">Log In</a></li>
+      <li class="divider"></li>
+       <li><form action="/logout" method="POST"><button class="">Log out</button></form></li>
+     {{!-- {{/if}} --}}
    {{!-- <div> <form action="/logout" method="POST"><button class="button4">Log out</button></form></div> --}}
-
-</ul>
+    </ul>
 <nav>
   <div class="nav-wrapper">
     <a href="/" class="brand-logo left">Swop.com</a>
     <ul class="right">
+      <li><a href="/about">About Swop</a></li>
       <li><a href="/categories">Categories</a></li>
-      <li><a href="/">About Swop</a></li>
       <!-- Dropdown Trigger -->
-      <li><a class="dropdown-button" href="signup" data-activates="dropdown1">Sign Up Now<i class="material-icons right">arrow_drop_down</i></a></li>
+      <li><a class="dropdown-button" href="/profile" data-activates="dropdown1">Profile<i class="material-icons right">arrow_drop_down</i></a></li>
     </ul>
   </div>
 </nav>

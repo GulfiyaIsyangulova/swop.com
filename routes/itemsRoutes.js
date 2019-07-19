@@ -21,6 +21,13 @@ const uploadMagic = require('../config/cloudinary');
 //  but the difference is its gonna do Item.find({category: req.params.theCategory})
 //  and pass in the result to the hbs file so it wont be all the items only.
 
+router.get('/about', (req, res, next) => {
+  res.render('items-views/about-swop', { message: req.flash('holy cow flash worked') });
+});
+
+
+
+
 router.get('/categories', (req, res, next)=>{
   console.log(req.session.currentUser);
   // if(!req.session.currentUser){
@@ -134,6 +141,7 @@ router.post('/oneItem/update/:itemID', uploadMagic.single('thePic'), (req, res, 
   const thePrice = req.body.price;
   const theCategory = req.body.category;
   const theDescription = req.body.description;
+  const theImg         =req.body.image;
   const theOwner = req.user._id;
   
   if(req.file){

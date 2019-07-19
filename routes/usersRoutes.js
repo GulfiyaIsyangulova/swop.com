@@ -4,6 +4,7 @@ const bcrypt  = require('bcryptjs');
 const User    = require('../models/User');
 const Item = require('../models/Item');
 const passport = require('passport');
+const Offer    = require('../models/Offer');
 
 const ensureLogin = require("connect-ensure-login");
 
@@ -39,6 +40,9 @@ router.post('/signup', (req, res, next)=>{
 
 
 router.get('/login', (req, res, next)=>{
+  if(req.user) {
+    res.redirect('/')
+  }
   res.render('user-views/login-view')
 })
 
@@ -63,12 +67,36 @@ router.get('/profile', (req, res, next)=>{
   }
   Item.find({"owner": req.user._id})
   .then(userItems => {
-    console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",req.user_id)
 
-    res.render('user-views/profile', {items: userItems})
+
+    // Offer.find({ $or: [ { $and: [proposer: req.params.idOfreceiver }], { <expression2> }, ...  { <expressionN> } ] })
+
+    Offer.find({ $or: [
+       { $and: [{proposer: req.user._id}, {active: true }]},
+       { $and: [{receiver: req.user._id}, {active: true }]}
+      ]
+    }).populate('proposer').populate('receiver').populate('proposerItems').populate('receiverItems')
+    .then ((allActive)=>{
+
+
+      Offer.find({ $or: [
+        { $and: [{proposer: req.user._id}, {active: false }]},
+        { $and: [{receiver: req.user._id}, {active: false }]}
+       ]}).populate('proposer').populate('receiver').populate('proposerItems').populate('receiverItems')
+       .then ((allNotActive)=>{
+
+
+
+        res.render('user-views/profile', {items: userItems, actives: allActive, inactives: allNotActive})
+
+
+
+
+       })
+    })
   }).catch(err => next(err))
 })
-
+ 
 
 
 

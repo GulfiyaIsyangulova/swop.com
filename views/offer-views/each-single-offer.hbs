@@ -1,0 +1,75 @@
+
+    <div class="offer">
+      <h3>Offer's Id: {{theOffer._id}}</h3>
+      <h3>Proposer: {{theOffer.proposer.username}}</h3>
+      <h3>Receiver: {{theOffer.receiver.username}} </h3>
+      <span>Date: {{theOffer.date}}</span>
+    </div>
+<div class="all-items" style="width: 33.333%;">
+    <div>
+       
+
+
+
+
+
+
+        <h1 class="">Let's make a deal!</h1>
+ 
+ <form action="/accept-offer/{{theOffer._id}}" method="POST">
+
+<button class="btn">Accept</button>
+
+</form>
+
+
+<form action="/deny-offer/{{theOffer._id}}" method="POST">
+
+<button class="btn">Decline</button>
+
+</form>
+
+<div class="offer">
+  <div class="singleOffer">
+    <div class="reciever">
+      <h1>Items I am swopping</h1>
+    {{#each theOffer.proposerItems}}
+        <div class="card">
+          <h2>{{this.title}}</h2>
+          <img class="card-img-top singleItemImage" src="{{this.image}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{this.title}} {{this.price}}</h5>
+            <p class="card-text">{{this.description}}</p>
+            <span>selling by {{this.owner.username}}</span> 
+          </div>
+        </div>
+      {{/each}}
+    </div>
+
+
+    <div class="proposer">
+      <h1>Items they are swopping</h1>
+      {{#each theOffer.receiverItems}}
+        <div class="card">
+          <h2>{{this.title}}</h2>
+          <img class="card-img-top singleItemImage" src="{{this.image}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{this.title}} {{this.price}}</h5>
+            <p class="card-text">{{this.description}}</p>
+            <span>selling by {{this.owner.username}}</span> 
+          </div>
+            <span>Red</span>
+        
+        </div>
+      {{/each}}
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+  
+

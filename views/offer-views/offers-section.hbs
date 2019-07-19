@@ -1,0 +1,52 @@
+
+
+<div>
+  <h3>Offers</h3>
+  <ul>
+    <li><a>You got a NEW offer!</a></li>
+    <li><a>Completed deals</a></li>
+  </ul>
+    <h2><a href="">Your active offers</a></h2>
+{{#each theOffers}}
+
+<li><a href="/each-offer/{{this._id}}">You got an offer from {{this.proposer.username}}</a></li>
+
+{{/each}}
+
+    {{!-- <div class="containerr">
+{{#each theOffers}}
+
+<div class="all-items" style="width: 33.333%;">
+    <h3>{{this._id}}</h3>
+
+    <h3>Proposer: {{this.proposer.username}}</h3>
+
+    <h3>Receiver: {{this.receiver.username}} </h3>
+    <div>
+        <h4>Receive Items</h4>
+        <ul>
+            {{#each this.receiverItems}}
+            <li>{{this.title}}</li>
+            <li><img class="card-img-top singleItemImage" src="{{this.image}}" alt=""></li>
+            {{/each}}
+        </ul>
+    </div>
+</div>
+    </div>
+
+<div class="all-items" style="width: 33.333%;">
+        <h4>Propose Items</h4>
+        <ul>
+            {{#each this.proposerItems}}
+            <li>{{this.title}}</li>
+            <li><img class="card-img-top singleItemImage" src="{{this.image}}" alt=""></li>
+            {{/each}}
+        </ul>
+
+
+    </div>
+{{/each}}  --}}
+
+
+
+

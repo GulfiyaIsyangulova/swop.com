@@ -8,4 +8,6 @@ router.get('/', (req, res, next) => {
   res.render('index', { message: req.flash('holy cow flash worked') });
 });
 
+
+
 module.exports = router;
