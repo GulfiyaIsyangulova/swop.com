@@ -31,7 +31,7 @@ router.post('/signup', (req, res, next)=>{
   .then(()=>{
       console.log('yay');
       req.flash('success'," User succesfully created. You may now login.")
-      res.redirect('/')
+      res.redirect('/login')
   })
   .catch((err)=>{
       next(err);
